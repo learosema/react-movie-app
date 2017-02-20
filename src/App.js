@@ -4,15 +4,21 @@ import { apiKey } from './apikey';
 import './App.css';
 import axios from 'axios';
 
+
+
+
 class App extends Component {
 
-  getInitialState() {
-    return { movies: [] }
+  constructor() {
+    super();
+    this.state = { movies: [] };
   }
 
   componentDidMount() {
-    axios.get(`https://api.themoviedb.org/3/movie/550?api_key=${apiKey}`).then(res => {
-      
+    const lang = navigator.language
+    axios.get(`https://api.themoviedb.org/4/list/1?api_key=${apiKey}&language=${lang}`).then(res => {
+      console.log(res);
+      console.table(res.data.results);
     })
   }
 
