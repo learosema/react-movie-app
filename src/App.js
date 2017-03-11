@@ -3,8 +3,24 @@ import logo from './logo.svg';
 import { apiKey } from './apikey';
 import './App.css';
 import axios from 'axios';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 
+/*
+React router works like this: 
+<Link to={`/movie/${movie.id}`}>Link description</Link>
+
+Define Routes:
+
+<Route path="/movie/:movieId" component={Movie} />
+
+<Route exact={true} path="/" render={() => (<h1>Hello</h1>)}/>
+
+const Movie = (props) => {
+  ...
+}
+
+*/
 
 
 class App extends Component {
