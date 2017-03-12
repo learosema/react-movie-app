@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import { apiKey } from './apikey';
 import './App.css';
 import axios from 'axios';
@@ -40,17 +39,33 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <Router>
+      <div className="site">
+        <header className="site-header">
+          <div className="logo">logo</div>
+          <nav>
+            <ul><Link to={"/discover/top-rated"}>Top rated movies</Link></ul>
+            <ul><Link to={"/discover/upcoming"}>Upcoming movies</Link></ul>
+            <ul><Link to={"/discover/now-playing"}>Now playing</Link></ul>
+          </nav>
+          <h2>test</h2>
+        </header>
+        <div class="site-main">
+          <Route exact={true} path="/" render={() => (
+            <h1>Hello World!</h1>
+          )} />
+          <Route path="/discover/:category" render={ ({match}) =>  (
+            <MovieList category={match.params.category} />
+          )} />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <footer>powered by <a href="https://www.themoviedb.org/">themoviedb</a></footer>
       </div>
+      </Router>
     );
   }
 }
+
+const MovieList = ({ category }) => (<div>{category}</div>);
+
 
 export default App;
