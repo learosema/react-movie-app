@@ -24,13 +24,13 @@ class App extends Component {
       <Router>
       <div className="site">
         <header className="site-header">
-          <div className="logo"><Link to="/">logo</Link></div>
+          <div className="logo"><Link to="/">Popcornify</Link></div>
           <nav className="site-nav">
             <ul>
-              <li><Link activeClassName="active" to={"/discover/top-rated"}>Top rated</Link></li>
-              <li><Link activeClassName="active" to={"/discover/most-popular"}>Most popular</Link></li>
-              <li><Link activeClassName="active" to={"/discover/upcoming"}>Upcoming movies</Link></li>
-              <li><Link activeClassName="active" to={"/discover/now-playing"}>Now playing</Link></li>
+              <li><Link activeClassName="active" to={"/discover/top-rated"}>Top</Link></li>
+              <li><Link activeClassName="active" to={"/discover/most-popular"}>Popular</Link></li>
+              <li><Link activeClassName="active" to={"/discover/upcoming"}>Upcoming</Link></li>
+              <li><Link activeClassName="active" to={"/discover/now-playing"}>Playing</Link></li>
               <li><Link activeClassName="active" to={"/search"}>Search</Link></li>
             </ul>
           </nav>
@@ -38,11 +38,11 @@ class App extends Component {
             powered by <a href="https://www.themoviedb.org/">themoviedb</a>
           </div>
         </header>
-        <div class="site-main">
+        <div className="site-main">
           <Route exact={true} path="/" render={() => (
             <h1>Hello World!</h1>
           )} />
-          <Route path="/discover/:category" render={ ({match}) =>  (
+          <Route path="/discover/:category" render={({match}) =>  (
             <MovieList category={match.params.category} />
           )} />
           <Route path="/search" render={() => (<div>search</div>)} />
