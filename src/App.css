@@ -1,0 +1,46 @@
+.site-header {
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 10vmin;
+  overflow: hidden;
+}
+
+.site-nav ul {
+  list-style: none; 
+  display: flex;
+}
+
+.site-header .logo a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 0 1em;
+}
+
+.site-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #3fc;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.site-nav a.active {
+  color: #7fe;
+  background: #444;
+}
+
+.site-header nav a:active {
+  color: #fff;
+}
+
+.powered-by {
+  margin: 0 1em 0 auto;
+}
+
+.powered-by a {
+  color: #3fc;
+}

@@ -2,25 +2,7 @@ import React, { Component } from 'react';
 import { apiKey } from './apikey';
 import './App.css';
 import axios from 'axios';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-
-
-/*
-React router works like this: 
-<Link to={`/movie/${movie.id}`}>Link description</Link>
-
-Define Routes:
-
-<Route path="/movie/:movieId" component={Movie} />
-
-<Route exact={true} path="/" render={() => (<h1>Hello</h1>)}/>
-
-const Movie = (props) => {
-  ...
-}
-
-*/
-
+import { BrowserRouter as Router, NavLink as Link, Route } from 'react-router-dom';
 
 class App extends Component {
 
@@ -42,13 +24,19 @@ class App extends Component {
       <Router>
       <div className="site">
         <header className="site-header">
-          <div className="logo">logo</div>
-          <nav>
-            <ul><Link to={"/discover/top-rated"}>Top rated movies</Link></ul>
-            <ul><Link to={"/discover/upcoming"}>Upcoming movies</Link></ul>
-            <ul><Link to={"/discover/now-playing"}>Now playing</Link></ul>
+          <div className="logo"><Link to="/">logo</Link></div>
+          <nav className="site-nav">
+            <ul>
+              <li><Link activeClassName="active" to={"/discover/top-rated"}>Top rated</Link></li>
+              <li><Link activeClassName="active" to={"/discover/most-popular"}>Most popular</Link></li>
+              <li><Link activeClassName="active" to={"/discover/upcoming"}>Upcoming movies</Link></li>
+              <li><Link activeClassName="active" to={"/discover/now-playing"}>Now playing</Link></li>
+              <li><Link activeClassName="active" to={"/search"}>Search</Link></li>
+            </ul>
           </nav>
-          <h2>test</h2>
+          <div className="powered-by">
+            powered by <a href="https://www.themoviedb.org/">themoviedb</a>
+          </div>
         </header>
         <div class="site-main">
           <Route exact={true} path="/" render={() => (
@@ -57,8 +45,8 @@ class App extends Component {
           <Route path="/discover/:category" render={ ({match}) =>  (
             <MovieList category={match.params.category} />
           )} />
+          <Route path="/search" render={() => (<div>search</div>)} />
         </div>
-        <footer>powered by <a href="https://www.themoviedb.org/">themoviedb</a></footer>
       </div>
       </Router>
     );
