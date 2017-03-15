@@ -4,6 +4,10 @@ import './App.css';
 import axios from 'axios';
 import { BrowserRouter as Router, NavLink as Link, Route } from 'react-router-dom';
 
+const Home = () => <h1>Home</h1>
+
+const MovieList = ({ category }) => <div><h1>{category}</h1></div>;
+
 class App extends Component {
 
   constructor() {
@@ -39,9 +43,7 @@ class App extends Component {
           </div>
         </header>
         <div class="site-main">
-          <Route exact={true} path="/" render={() => (
-            <h1>Hello World!</h1>
-          )} />
+          <Route exact path="/" component={Home} />
           <Route path="/discover/:category" render={ ({match}) =>  (
             <MovieList category={match.params.category} />
           )} />
@@ -53,7 +55,6 @@ class App extends Component {
   }
 }
 
-const MovieList = ({ category }) => (<div>{category}</div>);
 
 
 export default App;
