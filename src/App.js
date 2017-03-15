@@ -3,7 +3,7 @@ import { apiKey } from './apikey';
 import './App.css';
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Header } from './Header';
+import Header from './Header';
 
 const Home = () => <h1>Home</h1>
 
@@ -29,7 +29,7 @@ class App extends Component {
       <Router>
       <div className="site">
         <Header />
-        <div class="site-main">
+        <div className="site-main">
           <Route exact path="/" component={Home} />
           <Route path="/discover/:category" render={ ({match}) =>  (
             <MovieList category={match.params.category} />
